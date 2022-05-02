@@ -348,10 +348,10 @@ class Covering {
                 while (count < L.numSimplex) {
                         sendList[core] = simplexScrutiny(count, Jprime, K, a, b, M, r, argc, argv);
                         communication(sendList[core]);
-                        int index = chooseIndex();
+			int index = chooseIndex();
                         J.popSimplexAlpha();
                         if (index > -1) {
-                                sigma.updateSimplexAlpha(L.listOfFacets.A[0][index]);
+                                sigma.updateSimplexAlpha(alpha);
                                 J.pushSimplexAlpha(sigma);
                         }
 
