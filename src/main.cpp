@@ -13,7 +13,7 @@
 #include <cstdio>
 #include "LocalSearch.hpp"
 #include <functional>
-
+#include <iomanip>
 using namespace std;
 
 LocalSearch local;
@@ -123,20 +123,19 @@ int main(int argc, char **argv) {
 
 	O.initOptimizedCovering_CORE(L, komplex, map0, map1, M, r,  argc, argv);
 	O.runOptimizedCovering_CORE(num, L, komplex, map0, map1, M, Ns,r, argc, argv);
-	
-	 //cout << "\n\n-->Argumento " << num << "\n";
 	O.endOptimizedCovering();
         cout << "\n\n\n";
-
 
  	clock_gettime(CLOCK_MONOTONIC, &end);
     	double time_taken;
     	time_taken = (end.tv_sec - start.tv_sec) * 1e9;
     	time_taken = (time_taken + (end.tv_nsec - start.tv_nsec)) * 1e-9;
 
-    	cout << "El tiempo que el programa tomó es: " << fixed
-         << time_taken << setprecision(9);
-    	cout << " sec" << endl;
+	string ss = "optimized" + to_string(num) + "TIME.txt";
+        SimplexAlphaWriter sim = SimplexAlphaWriter(ss);
+        sim.write("\n\n\n--->TIME excution for optimized" + to_string(num) + ".txt is := " + to_string(time_taken));
+        sim.write("\n\n\n");
+	sim.closeSimplexAlphaWriter();
 
     return 0;
 }

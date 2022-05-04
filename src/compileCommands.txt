@@ -21,6 +21,7 @@ Con
 	r := 0.1
 	Ns:= 50
 
- 
-for x in {0..20}; do time mpirun -np 50 ./absMtion666 $x 10000 0.1 50; done
+1)for x in {0..20}; do touch optimized$xTIME.txt; done; 
+2)for x in {0..20}; do touch optimized$x.txt; done;
+3)for x in {0..20}; do time mpirun -np 50 ./absMtion666 $x 10000 0.1 50; done
 
