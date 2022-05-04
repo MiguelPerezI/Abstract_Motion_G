@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <cstdio>
 #include "LocalSearch.hpp"
+#include <functional>
 
 using namespace std;
 
@@ -32,12 +33,16 @@ double fRand(double fMin, double fMax)
 
 int main(int argc, char **argv) {
 
+	struct timespec start, end;
+    	clock_gettime(CLOCK_MONOTONIC, &start);
+    	ios_base::sync_with_stdio(false);
+
         srand(time(NULL));
 	
-   char *ptr;
-   double ret;
+   	char *ptr;
+   	double ret;
 
-   ret = strtod(argv[3], &ptr);
+   	ret = strtod(argv[3], &ptr);
 
 
         int M = atoi(argv[2]);
@@ -122,6 +127,16 @@ int main(int argc, char **argv) {
 	 //cout << "\n\n-->Argumento " << num << "\n";
 	O.endOptimizedCovering();
         cout << "\n\n\n";
+
+
+ 	clock_gettime(CLOCK_MONOTONIC, &end);
+    	double time_taken;
+    	time_taken = (end.tv_sec - start.tv_sec) * 1e9;
+    	time_taken = (time_taken + (end.tv_nsec - start.tv_nsec)) * 1e-9;
+
+    	cout << "El tiempo que el programa tomó es: " << fixed
+         << time_taken << setprecision(9);
+    	cout << " sec" << endl;
 
     return 0;
 }
