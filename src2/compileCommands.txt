@@ -1,0 +1,27 @@
+mpic++ main.cpp SimplexAbstract.cpp SimplexAlpha.cpp Matrix.cpp LocalSearch.cpp -o absMtion666 -pthread
+time mpirun -np 4 ./absMtion666
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<UPDATE>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+time mpirun -np 4 ./absMtion666 t M r N 
+
+t: number of times to excute the command
+M: positive integer 
+r: decimal 0.0 to 1.0
+N: number of cycles(bucles)
+
+
+Ejemplo:
+Repetir 20 veces el comando "time mpirun -np 4 ./absMtion666 x M r Ns"
+Con
+	x := 20
+	M := 10000
+	r := 0.1
+	Ns:= 50
+
+1)for x in {0..20}; do touch optimized$xTIME.txt; done; 
+2)for x in {0..20}; do touch optimized$x.txt; done;
+3)for x in {0..20}; do time mpirun -np 50 ./absMtion666 $x 10000 0.1 50; done
+

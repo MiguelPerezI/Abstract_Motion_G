@@ -1,0 +1,17 @@
+
+
+                       <<Optimized Covering Layout>>
+
+
+
+
+
+
+--->TIME excution for optimized13.txt is := 3.000774
+
+
+
+
+                       <<End Of Document>>
+
+
